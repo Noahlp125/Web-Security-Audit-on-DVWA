@@ -1,42 +1,45 @@
-## Running with Docker
+# 🐳 Docker Compose — DVWA Lab Environment
 
-To run this project using **Docker**, follow these steps:
+This directory contains the `docker-compose.yml` file used to deploy a lab environment with **Damn Vulnerable Web Application (DVWA)** and related services.  
+The goal is to have a controlled environment for **web auditing, pentesting, and vulnerability analysis** practice.
 
-1. Make sure you have [Docker](https://docs.docker.com/get-docker/) installed on your system.
+## 📂 Files
+- `docker-compose.yml` — defines the services and containers.
 
-2. Clone this repository:
-   git clone https://github.com/your-username/your-repo.git
-   cd your-repo
-   
-3. Build the Docker image:
-   docker build -t project-name .
+## 🚀 Prerequisites
+- Docker installed → [Instructions](https://docs.docker.com/get-docker/)  
+- Docker Compose installed → [Instructions](https://docs.docker.com/compose/install/)  
 
-4. Run the container:
-   docker run -it --rm -p 8080:8080 project-name
+Check installation:
+```bash
+docker --version
+docker compose version
 
-   -it: starts an interactive terminal.
+# ▶️ Usage
 
-   --rm: removes the container once it stops.
+1. Clone this repository or navigate to the folder containing the file:
+git clone <repo-url>
+cd dvwa-docker
 
-   -p 8080:8080: maps port 8080 from the container to your local machine. Change it if your app uses a different port.
+2. Start the containers in detached mode:
+docker compose up -d
 
-5. Open your browser and go  to:
-   http://localhost:8080
+3. Access DVWA in your browser:
+http://localhost:8080
 
-Using Docker Compose (optional)
+4. To stop the environment:
+docker compose down
 
-If you prefer using Docker Compose, you can create a docker-compose.yml file like this:
+#⚙️ Configuration
 
-version: "3"
-services:
-  app:
-    build: .
-    ports:
-      - "8080:8080"
+1. The docker-compose.yml file defines:
 
-Then run:
+DVWA: vulnerable application for testing.
 
-docker-compose up --build
+MySQL/MariaDB database: backend for DVWA.
 
+Environment variables set in the YAML for default credentials.
+
+⚠️ Note: This environment is for educational purposes only. Never expose DVWA to the internet or production networks.
 
 
