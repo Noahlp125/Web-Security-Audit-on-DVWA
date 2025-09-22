@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  dvwa:
+    image: vulnerables/web-dvwa
+    container_name: dvwa
+    ports:
+      - "8080:80"   # We expose the port 80 of DVWA in the 8080 of the host
+    environment:
+      - MYSQL_USER=dvwa
+      - MYSQL_PASSWORD=dvwa
+      - MYSQL_DATABASE=dvwa
+      - MYSQL_ROOT_PASSWORD=root
+    depends_on:
+      - db
+    networks:
+      - dvwa-net
+
+  db:
+    image: mysql:5.7
+    container_name: dvwa-db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: dvwa
+      MYSQL_USER: dvwa
+      MYSQL_PASSWORD: dvwa
+    networks:
+      - dvwa-net
+
+networks:
+  dvwa-net:
+    driver: bridge
