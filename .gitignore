@@ -1,0 +1,25 @@
+# System
+.DS_Store
+Thumbs.db
+
+# Node / Python / IDEs
+node_modules/
+__pycache__/
+*.pyc
+.env
+.env.local
+.env.*.local
+.vscode/
+.idea/
+
+# Logs
+*.log
+
+# Docker
+docker-compose.override.yml
+**/volumes/
+*.tar
+
+# OS generated
+*.swp
+*~
