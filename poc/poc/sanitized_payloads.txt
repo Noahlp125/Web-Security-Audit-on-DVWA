@@ -1,0 +1,19 @@
+# sanitized_payloads.txt
+# Example payloads (for lab use in DVWA only).
+# Keep these for educational purposes. Do NOT use on real targets without authorization.
+
+# XSS (Reflected) - simple (DVWA low)
+<script>alert('XSS Exploited!');</script>
+
+# XSS (Encoded) - if input filters < >
+&lt;script&gt;alert('XSS Exploited!')&lt;/script&gt;
+
+# SQLi - simple tautology (DVWA low)
+1' OR '1'='1
+
+# SQLi - comment to truncate query
+' OR '1'='1' -- 
+
+# Notes:
+# - Never include payloads that trigger remote code execution on third-party systems.
+# - If documenting scripts, include clear comments and require manual confirmation before running.
