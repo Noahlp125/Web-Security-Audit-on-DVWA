@@ -1,25 +1,93 @@
-# System
+# -----------------------
+# Project / OS / IDE
+# -----------------------
+# macOS / Windows
 .DS_Store
 Thumbs.db
 
-# Node / Python / IDEs
-node_modules/
+# IDEs
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# Logs & temp
+*.log
+tmp/
+*.tmp
+*~
+*.swp
+
+# Python / Node / general
 __pycache__/
 *.pyc
+node_modules/
+
+# -----------------------
+# Environment / secrets
+# -----------------------
+# Do not commit real environment files
 .env
 .env.local
 .env.*.local
-.vscode/
-.idea/
 
-# Logs
-*.log
+# Keep credentials out of history (helpers like git-secrets are recommended)
+# (Note: .gitignore doesn't remove already-committed secrets)
 
+# -----------------------
 # Docker
+# -----------------------
 docker-compose.override.yml
+docker-compose.*.yml
 **/volumes/
 *.tar
+**/data/
+*.pem
+*.key
 
-# OS generated
-*.swp
-*~
+# Containers / images
+*.crt
+*.csr
+
+# -----------------------
+# Tools & Reports
+# -----------------------
+# OWASP ZAP
+zap/*.session
+zap/*.db
+zap/*.backup
+zap/images_sanitized/
+zap/images_sanitized/*
+
+# Burp
+burp/*.project
+burp/*.state
+burp/*.backup
+
+# Reports / exports (if sensitive)
+reports/
+reports/*
+!reports/README.md
+
+# Screenshots / raw captures (optional: keep sanitized ones if desired)
+captures/
+captures/*
+zap/images/
+zap/images/*
+
+# If you prefer to include sanitized images, remove the line above and add exceptions:
+# !zap/images/01_zap_finding_xss_reflected.png
+
+# -----------------------
+# OS / misc binaries
+# -----------------------
+*.exe
+*.bin
+*.apk
+
+# -----------------------
+# Git rules
+# -----------------------
+# Ignore credentials file used by CI (if present locally)
+secrets.*.*
+
